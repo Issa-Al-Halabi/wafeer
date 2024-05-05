@@ -20,9 +20,8 @@ return new class extends Migration
             $table->longText('description');
             $table->string('languages');
             $table->string('image')->nullable();
-            $table->string('vedio')->nullable();
+            $table->string('video')->nullable();
             $table->timestamps();
-
         });
     }
 
