@@ -6,6 +6,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    $data = Order::with(["user","maid","status","statuses",])->first();
+    $data = Order::with(["user", "maid", "status", "statuses",])->first();
     return $data;
 });

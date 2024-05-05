@@ -18,6 +18,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\DB;
 
 class OrderResource extends Resource
 {
@@ -46,7 +47,12 @@ class OrderResource extends Resource
                             ->required()
                             ->searchable()
                             ->preload()
-                            ->relationship('maid', 'first_name', fn (Order|null $record, $query) => $query->whereDoesntHave("order")->orWhere("id", $record != null ? $record->id : 0))
+                            ->relationship(
+                                'maid',
+                                'first_name',
+                                fn (Order|null $record, $query) =>
+                                $query->doesntHave("order")->orWhere("id",  $record->maid->id)
+                            )
                             ->getOptionLabelFromRecordUsing(fn ($record, $livewire) => $record->hasTranslation('first_name', $livewire->activeLocale)
                                 ? $record->getTranslation('first_name', $livewire->activeLocale) . " " . $record->getTranslation('last_name', $livewire->activeLocale)
                                 : $record->first_name . " " . $record->last_name),
@@ -79,6 +85,7 @@ class OrderResource extends Resource
                         Forms\Components\TextInput::make('book_ticket')
                             ->label("قيمة تذكرة السفر")
                             ->required()
+                            ->maxLength(255)
                             ->numeric()
                             ->hidden(fn (Get $get): bool => !$get('book_ticket_bool')),
 
@@ -86,6 +93,7 @@ class OrderResource extends Resource
                         Forms\Components\TextInput::make('deliver_service')
                             ->label("قيمة خدمة التوصيل")
                             ->required()
+                            ->maxLength(255)
                             ->numeric()
                             ->hidden(fn (Get $get): bool => !$get('deliver_service_bool')),
                     ])->columns(2),
@@ -195,5 +203,14 @@ class OrderResource extends Resource
             'create' => Pages\CreateOrder::route('/create'),
             'edit' => Pages\EditOrder::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return static::getModel()::count() > 10 ? 'warning' : 'danger';
     }
 }
