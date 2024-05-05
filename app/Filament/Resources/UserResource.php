@@ -115,12 +115,25 @@ class UserResource extends Resource
         ];
     }
 
+    public static function getModelLabel(): string
+    {
+        return "مستخدم";
+    }
+    public static function getPluralLabel(): string
+    {
+        return "المستخدمين";
+    }
+    public static function getNavigationLabel(): string
+    {
+        return "المستخدمين";
+    }
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
     public static function getNavigationBadgeColor(): ?string
     {
-        return static::getModel()::count() > 10 ? 'warning' : 'danger';
+        return static::getModel()::count() > 10 ? 'warning' : 'info';
     }
 }

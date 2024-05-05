@@ -3,15 +3,19 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\MaidResource\Pages;
-use App\Filament\Resources\MaidResource\RelationManagers;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 use App\Models\Maid;
+use App\Models\Order;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Table;
+use Filament\Forms\Components\Wizard;
+use Filament\Tables\Actions\Action;
 
 class MaidResource extends Resource
 {
@@ -25,28 +29,56 @@ class MaidResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('first_name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('last_name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('age')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('nationality')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('languages')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\FileUpload::make('image')
-                    ->image(),
-                Forms\Components\TextInput::make('vedio')
-                    ->maxLength(255),
+                Section::make("")->schema([
+
+                    Forms\Components\TextInput::make('first_name')
+                        ->label("الأسم الأول")
+                        ->required()
+                        ->maxLength(255),
+
+                    Forms\Components\TextInput::make('last_name')
+                        ->required()
+                        ->label("الكنية")
+                        ->maxLength(255),
+
+                    Forms\Components\TextInput::make('age')
+                        ->required()
+                        ->label("العمر")
+                        ->numeric(),
+
+                    Forms\Components\TextInput::make('nationality')
+                        ->required()
+                        ->label("الجنسية")
+                        ->maxLength(255),
+
+                    Forms\Components\TagsInput::make('languages')
+                        ->required()
+                        ->label("اللغات")
+                        ->placeholder("أكتب اللغات"),
+
+                    TinyEditor::make('description')
+                        ->required()
+                        ->label("الوصف")
+                        ->columnSpanFull(),
+
+                    Forms\Components\FileUpload::make('image')
+                        ->label("الصورة")
+                        ->image()->fetchFileInformation(false)
+                        ->directory('images/maids')
+                        ->visibility('public')
+                        ->disk('public')
+                        ->imageEditor()
+                        ->downloadable()
+                        ->columnSpanFull(),
+
+                    Forms\Components\FileUpload::make('video')
+                        ->label("فيديو")
+                        ->fetchFileInformation(false)
+                        ->directory('videos/maids')
+                        ->acceptedFileTypes(['video/mp4', 'video/x-m4v', 'video/*'])
+                        ->afterStateUpdated(fn (callable $set, $state) => $set('mime', $state?->getMimeType()))
+                        ->columnSpanFull(),
+                ])->columns(3),
             ]);
     }
 
@@ -55,24 +87,44 @@ class MaidResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('first_name')
+                    ->label("الأسم الأول")
+                    ->sortable()
                     ->searchable(),
+
                 Tables\Columns\TextColumn::make('last_name')
+                    ->label("الكنية")
+                    ->sortable()
                     ->searchable(),
+
                 Tables\Columns\TextColumn::make('age')
+                    ->label("العمر")
                     ->numeric()
                     ->sortable(),
+
                 Tables\Columns\TextColumn::make('nationality')
+                    ->label("الجنسية")
+                    ->sortable()
                     ->searchable(),
+
                 Tables\Columns\TextColumn::make('languages')
+                    ->label("اللغات")
+                    ->badge()
+                    ->sortable()
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('vedio')
-                    ->searchable(),
+
+                Tables\Columns\ImageColumn::make('image')
+                    ->label("الصورة")
+                    ->disk('public')
+                    ->visibility('private'),
+
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label("تاريخ الانشاء")
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label("تاريخ اخر تحديث")
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -81,6 +133,30 @@ class MaidResource extends Resource
                 //
             ])
             ->actions([
+                Action::make("edit_order_status ")
+                    ->label("تعديل حالة الطلب")
+                    ->action(function (Order $record, array $data): void {
+                        dd($data);
+                    })
+                    ->form(
+                        function (Maid $record) {
+                            // dd($record);
+                            $s=2;
+                            
+                            return [
+                                Wizard::make([
+                                    Wizard\Step::make('Order')->schema([
+                                        Forms\Components\TextInput::make('nationality')
+                                            ->required()
+                                            ->label("الجنسية")
+                                            ->maxLength(255),
+                                    ]),
+                                    Wizard\Step::make('Order1')
+                                ])->startOnStep($s),
+                            ];
+                        }
+                    ),
+
                 ActionGroup::make(
                     [
                         Tables\Actions\ViewAction::make(),
@@ -112,12 +188,26 @@ class MaidResource extends Resource
         ];
     }
 
+
+    public static function getModelLabel(): string
+    {
+        return "خادمة";
+    }
+    public static function getPluralLabel(): string
+    {
+        return "الخادمات";
+    }
+    public static function getNavigationLabel(): string
+    {
+        return "الخادمات";
+    }
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
     public static function getNavigationBadgeColor(): ?string
     {
-        return static::getModel()::count() > 10 ? 'warning' : 'danger';
+        return static::getModel()::count() > 10 ? 'warning' : 'info';
     }
 }

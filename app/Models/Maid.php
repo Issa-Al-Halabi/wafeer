@@ -20,7 +20,11 @@ class Maid extends Model
         'description',
         'languages',
         'image',
-        'vedio',
+        'video',
+    ];
+
+    protected $casts = [
+        'languages' => 'array',
     ];
 
     public function order()
