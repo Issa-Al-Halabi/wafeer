@@ -21,10 +21,7 @@ class Order extends Model
         'deliver_service',
     ];
 
-    protected $casts = [
-        'book_ticket' => 'boolean',
-        'deliver_service' => 'boolean',
-    ];
+    protected $casts = [];
 
     public function user()
     {

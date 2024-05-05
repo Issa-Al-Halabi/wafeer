@@ -9,6 +9,7 @@ use App\Models\Order;
 use Filament\Forms;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
 use Filament\Resources\Concerns\Translatable;
@@ -92,15 +93,31 @@ class OrderResource extends Resource
                     Forms\Components\Toggle::make('book_ticket_bool')
                         ->label("حجز تذكرة سفر ؟؟")
                         ->required()
-                        ->dehydrated()
                         ->default(false)
+                        ->afterStateHydrated(function (Toggle $component, Order|null $record): void {
+                            if ($record == null) {
+                                $component->state(false);
+                            } else if ($record->book_ticket != null) {
+                                $component->state(true);
+                            } else {
+                                $component->state(false);
+                            }
+                        })
                         ->live(),
 
                     Forms\Components\Toggle::make('deliver_service_bool')
                         ->label("خدمة التوصيل الى مطار دمشق الدولي؟؟")
                         ->required()
-                        ->dehydrated()
-                        ->default(false)
+                        ->default(true)
+                        ->afterStateHydrated(function (Toggle $component, Order|null $record): void {
+                            if ($record == null) {
+                                $component->state(false);
+                            } else if ($record->deliver_service != null) {
+                                $component->state(true);
+                            } else {
+                                $component->state(false);
+                            }
+                        })
                         ->live(),
                 ]),
             ])->columns(3);
@@ -119,14 +136,13 @@ class OrderResource extends Resource
                     ->searchable()
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('maid_id')
+                Tables\Columns\TextColumn::make('maid.full_name')
                     ->label("اسم الخادمة")
-                    ->numeric()
+                    ->searchable()
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('status_id')
-                    ->numeric()
-                    ->sortable(),
+                // Tables\Columns\TextColumn::make('status_id')
+                //     ->sortable(),
 
                 Tables\Columns\TextColumn::make('type')
                     ->state(fn (Order $record, $livewire) => $livewire->activeLocale == "ar"
