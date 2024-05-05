@@ -14,8 +14,6 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Table;
-use Filament\Forms\Components\Wizard;
-use Filament\Tables\Actions\Action;
 
 class MaidResource extends Resource
 {
@@ -133,29 +131,6 @@ class MaidResource extends Resource
                 //
             ])
             ->actions([
-                Action::make("edit_order_status ")
-                    ->label("تعديل حالة الطلب")
-                    ->action(function (Order $record, array $data): void {
-                        dd($data);
-                    })
-                    ->form(
-                        function (Maid $record) {
-                            // dd($record);
-                            $s=2;
-                            
-                            return [
-                                Wizard::make([
-                                    Wizard\Step::make('Order')->schema([
-                                        Forms\Components\TextInput::make('nationality')
-                                            ->required()
-                                            ->label("الجنسية")
-                                            ->maxLength(255),
-                                    ]),
-                                    Wizard\Step::make('Order1')
-                                ])->startOnStep($s),
-                            ];
-                        }
-                    ),
 
                 ActionGroup::make(
                     [

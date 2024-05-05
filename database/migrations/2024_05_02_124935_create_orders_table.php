@@ -20,10 +20,10 @@ return new class extends Migration
             $table->unsignedBigInteger('maid_id');
             $table->foreign('maid_id')->references('id')->on('maids')->cascadeOnDelete();
             $table->integer('type');
-            $table->unsignedBigInteger('status_id');
+            $table->unsignedBigInteger('status_id')->nullable();
             $table->foreign('status_id')->references('id')->on('statuses')->cascadeOnDelete();
-            $table->boolean('book_ticket')->default(0);
-            $table->boolean('deliver_service')->default(0);
+            $table->string('book_ticket')->nullable();
+            $table->string('deliver_service')->nullable();
             $table->timestamps();
         });
 
