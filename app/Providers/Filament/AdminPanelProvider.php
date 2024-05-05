@@ -78,6 +78,7 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups(
                 [
                     'مستخدمين النظام',
+                    'الخادمات',
                     'إدارة الوصول',
                 ]
             );
