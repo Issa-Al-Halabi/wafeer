@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    // $data = Order::with(["user","maid","status","statuses",])->first();
     $data = Status::getForm(1);
+    // $data = Order::with(["user", "maid", "status", "statuses",])->first();
     return $data;
 });

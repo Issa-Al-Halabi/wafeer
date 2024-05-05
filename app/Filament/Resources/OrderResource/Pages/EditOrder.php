@@ -20,8 +20,27 @@ class EditOrder extends EditRecord
             Actions\LocaleSwitcher::make(),
         ];
     }
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        return $data;
+    }
     protected function mutateFormDataBeforeSave(array $data): array
     {
-        return $data == ["" => null] ? [] : $data;
+        if ($data == ["" => null]) {
+            return [];
+        }
+        if ($data["book_ticket_bool"] == false) {
+            $data["book_ticket"] = null;
+        }
+        if ($data["deliver_service_bool"] == false) {
+            $data["deliver_service"] = null;
+        }
+
+        return $data;
+    }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
     }
 }
