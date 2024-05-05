@@ -10,7 +10,7 @@ class Maid extends Model
 {
     use HasFactory, HasTranslations;
 
-    public $translatable = ['first_name', 'last_name', 'nationality', 'description', 'languages'];
+    public $translatable = ['first_name', 'last_name', 'nationality', 'description', 'languages', "full_name"];
 
     protected $fillable = [
         'first_name',
@@ -22,6 +22,11 @@ class Maid extends Model
         'image',
         'vedio',
     ];
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . " " . $this->last_name;
+    }
 
     public function order()
     {

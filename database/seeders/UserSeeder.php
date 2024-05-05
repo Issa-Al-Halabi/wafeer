@@ -19,6 +19,14 @@ class UserSeeder extends Seeder
             "phone" => "0987654321",
             "password" => Hash::make("qwer1234")
         ]);
-        $user->assignRole("superAdmin");
+        $user->assignRole("super_admin");
+
+        $issa =  User::firstOrCreate([
+            "name" => "issa",
+            "email" => "issa@gmail.com",
+            "phone" => "0987654321",
+            "password" => Hash::make("qwer1234")
+        ]);
+        $issa->assignRole("super_admin");
     }
 }

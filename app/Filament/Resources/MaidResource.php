@@ -45,7 +45,7 @@ class MaidResource extends Resource
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
                     ->image(),
-                Forms\Components\TextInput::make('vedio')
+                Forms\Components\TextInput::make('video')
                     ->maxLength(255),
             ]);
     }
