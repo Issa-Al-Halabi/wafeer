@@ -51,7 +51,7 @@ class OrderResource extends Resource
                                 'maid',
                                 'first_name',
                                 fn (Order|null $record, $query) =>
-                                $query->doesntHave("order")->orWhere("id",  $record->maid->id)
+                                $query->doesntHave("order")->orWhere("id", $record == null ? 0 : $record->maid->id)
                             )
                             ->getOptionLabelFromRecordUsing(fn ($record, $livewire) => $record->hasTranslation('first_name', $livewire->activeLocale)
                                 ? $record->getTranslation('first_name', $livewire->activeLocale) . " " . $record->getTranslation('last_name', $livewire->activeLocale)

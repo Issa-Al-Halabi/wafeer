@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="{{ asset('front-assets/css/bootstrap.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('front-assets/css/main.css') }}" id="color-switcher-link">
-<link rel="stylesheet" href="{{ asset('front-assets/css/animations.css') }}">
-<link rel="stylesheet" href="{{ asset('front-assets/css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ asset('front-assets/css/animations.css') }}">
+    <link rel="stylesheet" href="{{ asset('front-assets/css/fonts.css') }}">
 
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="front-assets/js/vendor/modernizr-2.6.2.min.js"></script>
 
     <!--[if lt IE 9]>
         <script src="js/vendor/html5shiv.min.js"></script>
