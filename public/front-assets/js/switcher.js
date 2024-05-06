@@ -60,10 +60,10 @@ var switcherHTML = '<div id="switcher">';
 		switcherHTML +=    		'<p class="for-toggle hidden">Boxed Patterns</p>';
 		switcherHTML +=    		'<ul id="switcher-patterns" class="list-inline for-toggle hidden">';
 
-		for (var i = 0; i < 12; i++) {
+		for (var i = 1; i < 12; i++) {
 			switcherHTML +=    		    '<li>';
 			switcherHTML +=    		        '<a href="#" class="pattern' + i + '" data-pattern="pattern' + i + '">';
-			switcherHTML +=    		            '<img src="img/pattern' + i + '.png" alt="" width="40" height="40" title="pattern' + i + '">';
+			switcherHTML +=    		            '<img src="front-assets/img/pattern' + i + '.png" alt="" width="40" height="40" title="pattern' + i + '">';
 			switcherHTML +=    		        '</a>';
 			switcherHTML +=    		    '</li>';
         	//available patterns

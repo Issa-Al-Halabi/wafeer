@@ -1,7 +1,7 @@
 <nav class="mainmenu_wrapper bordered_items" style="direction: rtl;">
     <ul class="mainmenu nav sf-menu" style="width:max-content">
         <li class="active">
-            <a href="index">الرئيسية</a>
+            <a href="/">الرئيسية</a>
         </li>
         <li>
             <a href="about.html">الصفحات</a>
