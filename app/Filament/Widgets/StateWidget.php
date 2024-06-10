@@ -2,11 +2,11 @@
 
 namespace App\Filament\Widgets;
 
-use App\Filament\Resources\MaidResource;
-use App\Filament\Resources\OrderResource;
+use App\Filament\Resources\CategoryResource;
+use App\Filament\Resources\ProductResource;
 use App\Filament\Resources\UserResource;
-use App\Models\Maid;
-use App\Models\Order;
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\User;
 use Filament\Support\Enums\IconPosition;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
@@ -39,36 +39,36 @@ class StateWidget extends BaseWidget
         $toDate = $this->toDate ?? now()->endOfYear();
 
         $userChart = $this->getStatsChart(User::class, $fromDate, $toDate);
-        $orderChart = $this->getStatsChart(Order::class, $fromDate, $toDate);
-        $maidChart = $this->getStatsChart(Maid::class, $fromDate, $toDate);
+        $ProductChart = $this->getStatsChart(Product::class, $fromDate, $toDate);
+        $CategoryChart = $this->getStatsChart(Category::class, $fromDate, $toDate);
 
         return [
-            Stat::make("Users", User::whereDate('created_at', '>=', $fromDate)
+            Stat::make("المستخدمين", User::whereDate('created_at', '>=', $fromDate)
                 ->whereDate('created_at', '<=', $toDate)
                 ->count())
-                ->description("Number Of Users")
+                ->description("عدد المستخدمين")
                 ->descriptionIcon("heroicon-o-user-group", IconPosition::Before)
                 ->chart($userChart->toArray())
                 ->color("success")
                 ->url(UserResource::getUrl()),
 
-            Stat::make("Orders", Order::whereDate('created_at', '>=', $fromDate)
+            Stat::make("المنتجات", Product::whereDate('created_at', '>=', $fromDate)
                 ->whereDate('created_at', '<=', $toDate)
                 ->count())
-                ->description("Number Of Orders")
+                ->description("عدد المنتجات")
                 ->descriptionIcon("heroicon-o-inbox-stack", IconPosition::Before)
-                ->chart($orderChart->toArray())
+                ->chart($ProductChart->toArray())
                 ->color("success")
-                ->url(OrderResource::getUrl()),
+                ->url(ProductResource::getUrl()),
 
-            Stat::make("Maids", Maid::whereDate('created_at', '>=', $fromDate)
+            Stat::make("الفئات", Category::whereDate('created_at', '>=', $fromDate)
                 ->whereDate('created_at', '<=', $toDate)
                 ->count())
-                ->description("Number Of Maids")
+                ->description("عدد الفئات")
                 ->descriptionIcon("heroicon-o-user", IconPosition::Before)
-                ->chart($maidChart->toArray())
+                ->chart($CategoryChart->toArray())
                 ->color("success")
-                ->url(MaidResource::getUrl()),
+                ->url(CategoryResource::getUrl()),
         ];
     }
 

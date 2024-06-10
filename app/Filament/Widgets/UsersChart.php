@@ -15,7 +15,7 @@ class UsersChart extends ChartWidget
     public ?string $filter = 'today';
     protected static ?int $sort = 3;
 
-    public string $myHeading = 'مخطط الطلبات';
+    public string $myHeading = 'مخطط المستخدمين';
     public Carbon $startDate;
     public Carbon $endDate;
 
