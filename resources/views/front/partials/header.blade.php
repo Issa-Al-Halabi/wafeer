@@ -11,7 +11,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-xs-12 text-right textRight yy">
+            <div class="col-md-6 col-xs-12 text-right textRight yy" style="padding-left: 100px;">
                 <!-- main nav start -->
                 @include('front.partials.navbar')
                 <!-- eof main nav -->

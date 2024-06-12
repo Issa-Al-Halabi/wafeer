@@ -38,10 +38,10 @@ class UserResource extends Resource
                     ->required(fn (string $operation): bool => $operation === 'create')
                     ->maxLength(255),
 
-                Forms\Components\TextInput::make('phone')
-                    ->tel()
-                    ->required()
-                    ->maxLength(255),
+                // Forms\Components\TextInput::make('phone')
+                //     ->tel()
+                //     ->required()
+                //     ->maxLength(255),
 
                 Forms\Components\Select::make('role')
                     ->relationship(name: 'roles', titleAttribute: 'name')
@@ -64,8 +64,8 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
 
-                Tables\Columns\TextColumn::make('phone')
-                    ->searchable(),
+                // Tables\Columns\TextColumn::make('phone')
+                //     ->searchable(),
 
                 Tables\Columns\TextColumn::make('roles.name')
                     ->label("الأدوار")

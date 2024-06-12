@@ -32,9 +32,9 @@
                 </div>
                 <!-- عمود الزر -->
                 <div class="col-md-3 text-right">
-                    <input
+                    {{-- <input
                         style="direction: rtl; border-radius: 5px; border: 4px solid #fff; width: 100%; box-sizing: border-box; font-size: 16px;"
-                        type="search" id="searchQuery" placeholder="🔍 بحث">
+                        type="search" id="searchQuery" placeholder="🔍 بحث"> --}}
                 </div>
             </div>
         </div>
