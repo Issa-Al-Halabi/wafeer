@@ -2,20 +2,21 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\ContactUs;
 use App\Models\User;
 use Filament\Widgets\ChartWidget;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 use Illuminate\Support\Carbon;
 
-class UsersChart extends ChartWidget
+class ContactUsChart extends ChartWidget
 {
-    protected static ?string $heading = 'مخطط المستخدمين';
+    protected static ?string $heading = 'مخطط طلبات التواصل';
     protected static string $color = 'success';
     public ?string $filter = 'today';
     protected static ?int $sort = 3;
 
-    public string $myHeading = 'مخطط المستخدمين';
+    public string $myHeading = 'مخطط طلبات التواصل';
     public Carbon $startDate;
     public Carbon $endDate;
 
@@ -23,7 +24,7 @@ class UsersChart extends ChartWidget
     {
         $activeFilter = $this->filter;
 
-        $data = Trend::model(User::class);
+        $data = Trend::model(ContactUs::class);
 
         if ($activeFilter == "today") {
             $data = $data
@@ -58,7 +59,7 @@ class UsersChart extends ChartWidget
         $this->startDate = $data->start;
         $this->endDate = $data->end;
 
-        $this->myHeading = 'مخطط المستخدمين ' . "من تاريخ (" .
+        $this->myHeading = 'مخطط طلبات التواصل ' . "من تاريخ (" .
             $this->startDate->format("Y-m-d") . ")" .
             " => " .
             "الى تاريخ (" . $this->endDate->format("Y-m-d") . ")";
@@ -68,7 +69,7 @@ class UsersChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Users',
+                    'label' => 'طلبات التواصل',
                     'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
                 ],
             ],

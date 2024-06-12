@@ -45,6 +45,7 @@ class RecipeResource extends Resource
 
                     Forms\Components\toggle::make('status')
                         ->label("حالة الوصفة")
+                        ->default(true)
                         ->required(),
 
 
@@ -167,6 +168,6 @@ class RecipeResource extends Resource
     }
     public static function getNavigationBadgeColor(): ?string
     {
-        return static::getModel()::count() > 10 ? 'warning' : 'info';
+        return static::getModel()::count() > 10 ? 'warning' : 'primary';
     }
 }
