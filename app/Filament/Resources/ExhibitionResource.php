@@ -46,6 +46,7 @@ class ExhibitionResource extends Resource
 
                             Forms\Components\toggle::make('status')
                                 ->label("حالة المعرض")
+                                ->default(true)
                                 ->required(),
 
                             Forms\Components\FileUpload::make('image')
