@@ -62,6 +62,7 @@ class ProductResource extends Resource
                     Forms\Components\toggle::make('status')
                         ->label("حالة المنتج")
                         ->required()
+                        ->default(true)
                 ]),
             ]);
     }

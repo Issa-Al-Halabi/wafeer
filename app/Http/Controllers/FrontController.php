@@ -14,7 +14,8 @@ class FrontController extends Controller
 {
     public function index()
     {
-        return view("front.index");
+        $products = Product::where("status",1)->latest()->limit(10)->get();
+        return view("front.index", compact("products"));
     }
 
     public function whoarewe()
