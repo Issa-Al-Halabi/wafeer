@@ -81,6 +81,7 @@ class AdminPanelProvider extends PanelProvider
                     'المنتجات',
                     'الوصفات',
                     'المعارض',
+                    "تواصل معنا",
                     'إدارة الوصول',
                 ]
             );

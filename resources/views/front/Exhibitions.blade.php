@@ -17,13 +17,18 @@
     <div class="container custom-container"
         style="display: flex; justify-content: center; background-color: #e4f0e8; padding-top: 28px; border-radius: 10px;">
         <form method="GET">
+
             <select name="year" class="custom-select"
                 style="background-color: #74C329; color: white; border-radius: 23px;    height: 44px;
     font-size: 14px;">
                 @foreach ($years as $year)
-                    <option value="{{ $year }}">اذهب الى {{ $year }}</option>
+                    <option value="{{ $year }}" @if ($activeYear == $year) selected @endif>اذهب الى
+                        {{ $year }}</option>
                 @endforeach
             </select>
+            <Label style="font-size: 16px;">
+                اختر السنة
+            </Label>
         </form>
     </div>
 
@@ -42,24 +47,36 @@
 
             @foreach ($exhibitions as $exhibition)
                 <div class="col-md-3" style="padding-bottom: 75px;">
-                    <div class="card"
-                        style="background-color: #FFFFFF; text-align: center; height: 292px; width: 90%; margin: auto;">
-                        <div class="card-body" style="background-color: #FFFFFF;">
-                            <img src="front-assets/images/اكسبو.png" class="card-img-top" alt="Image"
-                                style="max-width: 100%; height: auto; max-height: 200px;">
-                            <h5 class="card-title" style="font-size: 25px; margin-top: 35px;">
-                                --------{{ $exhibition->year }}--------</h5>
-                            <p class="card-textt"style="font-size: 19px;    margin-top: 43px;">
-                                {{ $exhibition->name }}
-                            </p>
+                    <button onclick="window.location.href='{{ route('exhibitionInfo', $exhibition->id) }}'"
+                        class="exhibitionInfo">
+                        <style>
+                            .exhibitionInfo:focus {
+                                outline: none;
+                            }
+                        </style>
+                        <div class="card"
+                            style="background-color: #FFFFFF; text-align: center; height: 292px; width: 90%; margin: auto;">
+                            <div class="card-body" style="background-color: #FFFFFF;">
+                                <img src="front-assets/images/اكسبو.png" class="card-img-top" alt="Image"
+                                    style="max-width: 100%; height: auto; max-height: 200px;">
+                                <h5 class="card-title" style="font-size: 25px; margin-top: 35px;">
+                                    --------{{ $exhibition->year }}--------</h5>
+                                <p class="card-textt"style="font-size: 19px;    margin-top: 43px;">
+                                    {{ $exhibition->name }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </button>
                 </div>
             @endforeach
 
         </div>
     </section>
 
-
-    </section>
+    <script>
+        const yearSelect = document.querySelector(".custom-select");
+        yearSelect.addEventListener("change", function(event) {
+            event.target.parentElement.submit();
+        });
+    </script>
 @endsection

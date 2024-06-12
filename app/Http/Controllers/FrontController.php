@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\PaginationHelper;
+use App\Http\Requests\ContactUsRequest;
 use App\Models\Category;
+use App\Models\ContactUs;
 use App\Models\Exhibition;
 use App\Models\Product;
 use App\Models\Recipe;
@@ -66,10 +68,9 @@ class FrontController extends Controller
         return view("front.Videorecipes", compact("recipe"));
     }
 
-    public function exhibitions()
+    public function exhibitions(Request $request)
     {
         $activeYear = now()->year;
-        // $exhibitions = Exhibition::where("status", "1")->get()->groupBy("year");
 
         $years = Exhibition::pluck("year");
         $years = array_values(array_unique($years->toArray()));
@@ -78,6 +79,11 @@ class FrontController extends Controller
         if (count($years) > 0) {
             $activeYear = $years[0];
         }
+
+        if (isset($request->year)) {
+            $activeYear = $request->year;
+        }
+
         $exhibitions = Exhibition::where("status", "1")->where("year", $activeYear)->get();
 
         return view("front.Exhibitions", compact("exhibitions", "years", "activeYear"));
@@ -85,11 +91,29 @@ class FrontController extends Controller
 
     public function exhibitionInfo($id)
     {
-        return view("front.image");
+        $exhibition = Exhibition::findOrFail($id);
+
+        return view("front.image", compact('exhibition'));
     }
 
     public function contactUs()
     {
         return view("front.Connect");
+    }
+
+    public function saveContactUs(ContactUsRequest $request)
+    {
+
+        $contactUs = new ContactUs();
+
+        $contactUs->name = $request->name;
+        $contactUs->phone = $request->phone;
+        $contactUs->email = $request->email;
+        $contactUs->subject = $request->subject;
+        $contactUs->message = $request->message;
+
+        $contactUs->save();
+
+        return redirect()->route('contactUs')->with('success', 'تم ارسال البيانات بنجاح');
     }
 }
