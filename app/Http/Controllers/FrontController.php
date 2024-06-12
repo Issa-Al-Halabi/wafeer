@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filament\Resources\ContactUsResource;
 use App\Helpers\PaginationHelper;
 use App\Http\Requests\ContactUsRequest;
 use App\Models\Category;
@@ -9,8 +10,10 @@ use App\Models\ContactUs;
 use App\Models\Exhibition;
 use App\Models\Product;
 use App\Models\Recipe;
+use App\Models\User;
 use Illuminate\Http\Request;
-
+use Filament\Notifications\Notification;
+use Filament\Notifications\Actions\Action;
 
 class FrontController extends Controller
 {
@@ -113,6 +116,23 @@ class FrontController extends Controller
         $contactUs->message = $request->message;
 
         $contactUs->save();
+
+        Notification::make()
+            ->title('تم التواصل معك من قبل ' . $request->name)
+            ->actions([
+
+                Action::make('view')
+                    ->label("عرض")
+                    ->button()
+                    ->color("success")
+                    ->url(fn (ContactUsResource $record): string => $record::getUrl('index')),
+
+                Action::make('markAsRead')
+                    ->label("تعليم كمقروء")
+                    ->button()
+                    ->markAsRead(),
+            ])
+            ->sendToDatabase(User::all());
 
         return redirect()->route('contactUs')->with('success', 'تم ارسال البيانات بنجاح');
     }
