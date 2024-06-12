@@ -40,8 +40,8 @@
                                 <p class="text1">في إنتاج قمر الدين والمربيات ثم خطت في العام 1976</p>
                             </div>
                             <div class="col-md-12 text-right" style="margin-top: 8px; margin-bottom: 8px;">
-                                <button type="button" class="btn btn-danger btn-lg"
-                                    style="height: 84%; width: 127px; border: none; font-size: 21px;">المزيد</button>
+                                <a type="button" class="btn btn-danger btn-lg" href="{{ route('whoarewe') }}"
+                                    style="height: 84%; width: 127px; border: none; font-size: 21px;">المزيد</a>
                             </div>
 
                         </div>
@@ -59,8 +59,9 @@
                                                 <p class="card-text" style=" ">مكسرات متنوعة تلبي جميع احتياجاتك
                                                     الغذائية</p>
 
-                                                <button type="button" class="btn btn-danger btn-lg"
-                                                    style="height: 84%; width: 127px; border: none; font-size: 21px;">المزيد</button>
+                                                <a type="button" class="btn btn-danger btn-lg"
+                                                    href="{{ route('products') }}"
+                                                    style="height: 84%; width: 127px; border: none; font-size: 21px;">المزيد</a>
                                             </div>
                                         </div>
                                         <div class="col-md-5">
@@ -82,8 +83,9 @@
                                                 <h1 style="color:red;"><strong>الكونسروا</strong> </h1>
                                                 <p class="card-text" style=" ">منتجات متنوعة تلبي جميع احتياجاتك
                                                     الغذائية</p>
-                                                <button type="button" class="btn btn-danger btn-lg"
-                                                    style="height: 84%; width: 127px; border: none; font-size: 21px;">المزيد</button>
+                                                <a type="button" class="btn btn-danger btn-lg"
+                                                    href="{{ route('products') }}"
+                                                    style="height: 84%; width: 127px; border: none; font-size: 21px;">المزيد</a>
                                             </div>
                                         </div>
                                     </div>
@@ -97,120 +99,56 @@
                         <div class="col-md-12 text-center">
                             <div class="text-centerr">منتجاتنا</div>
                             <img src="front-assets/images/wafeerinedx.jpg" alt="Right Image" class="img-fluid">
-                            <button type="button" class="btn btn-danger mt-2 yazan ">استعراض المزيد</button>
+                            <a type="button" href="{{ route('products') }}" class="btn btn-danger mt-2 yazan ">استعراض
+                                المزيد</a>
                         </div>
                     </div>
                 </section>
 
+                @if (count($products) > 0)
+                    <section class="ls gallery-section" style="background-color: #e4f0e8;">
+                        <div class="container-fluid">
+                            <div class="row columns_padding_0" style="    padding-bottom: 147px;">
+                                <div class="col-sm-12" style="    padding-top: 29px;">
+                                    <div class="owl-carousel" data-margin="15" data-nav="true" data-items="5"
+                                        data-responsive-xlg="5" data-responsive-lg="5" data-responsive-md="4"
+                                        data-responsive-sm="3" data-responsive-xs="1">
 
-                <section class="ls gallery-section" style="background-color: #e4f0e8;">
-                    <div class="container-fluid">
-                        <div class="row columns_padding_0" style="    padding-bottom: 147px;">
-                            <div class="col-sm-12" style="    padding-top: 29px;">
-                                <div class="owl-carousel" data-margin="15" data-nav="true" data-items="5"
-                                    data-responsive-xlg="5" data-responsive-lg="5" data-responsive-md="4"
-                                    data-responsive-sm="3" data-responsive-xs="1">
+                                        @foreach ($products as $product)
+                                            <div class="vertical-item">
+                                                <div class="item-media gray-background">
+                                                    @if ($product->created_at > now()->subdays(10))
+                                                        <div class="new">
+                                                            <span>جديد</span>
+                                                        </div>
+                                                    @endif
 
-                                    <div class="vertical-item">
-                                        <div class="item-media gray-background">
-                                            <img class="center-block img-responsive" src="front-assets/images/mshmoh.png"
-                                                alt="" style="width: 92px; height: auto;">
-                                            <div class="item-description">
-                                                <p> مربى المشمش </p>
-                                                <p> قطع 350غ</p>
-                                            </div>
-                                            <div class="media-links">
-                                                <div class="links-wrap">
-                                                    <a class="p-view prettyPhoto" title=""
-                                                        data-gal="prettyPhoto[gal]"
-                                                        href="front-assets/images/gallery/01.jpg"></a>
+                                                    <img class="center-block img-responsive"
+                                                        src="{{ asset('storage/' . $product->image) }}" alt=""
+                                                        style="width: 92px; height: auto;">
+                                                    <div class="item-description">
+                                                        <p>{{ $product->name }}</p>
+                                                        <p> {{ $product->description }}</p>
+                                                    </div>
+                                                    <div class="media-links">
+                                                        <div class="links-wrap">
+                                                            <a class="p-view prettyPhoto" title=""
+                                                                data-gal="prettyPhoto[gal]"
+                                                                href="{{ asset('storage/' . $product->image) }}"></a>
+                                                        </div>
+                                                        <a class="abs-link"></a>
+                                                    </div>
                                                 </div>
-                                                <a class="abs-link"></a>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="vertical-item">
-                                        <div class="item-media gray-background">
-                                            <img class="center-block img-responsive" src="front-assets/images/homas.png"
-                                                alt="" style="width: 92px; height: auto;">
-                                            <div class="item-description">
-                                                <p>حمص حب </p>
-                                                <p> مسلوق 350غ</p>
-                                            </div>
-                                            <div class="media-links">
-                                                <div class="links-wrap">
-                                                    <a class="p-view prettyPhoto" title=""
-                                                        data-gal="prettyPhoto[gal]"
-                                                        href="front-assets/images/gallery/01.jpg"></a>
-                                                </div>
-                                                <a class="abs-link"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="vertical-item">
+                                        @endforeach
 
-                                        <div class="item-media gray-background">
-                                            <div class="new">
-                                                <span>جديد</span>
-                                            </div>
-                                            <img class="center-block img-responsive" src="front-assets/images/foal.png"
-                                                alt="" style="width: 92px; height: auto;">
-                                            <div class="item-description">
-                                                <p> فول مدمس </p>
-                                                <p> سادة 350غ</p>
-                                            </div>
-                                            <div class="media-links">
-                                                <div class="links-wrap">
-                                                    <a class="p-view prettyPhoto" title=""
-                                                        data-gal="prettyPhoto[gal]"
-                                                        href="front-assets/images/gallery/01.jpg"></a>
-                                                </div>
-                                                <a class="abs-link"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="vertical-item">
-                                        <div class="item-media gray-background">
-                                            <img class="center-block img-responsive" src="front-assets/images/zra.png"
-                                                alt="" style="width: 92px; height: auto;">
-                                            <div class="item-description">
-                                                <p> ذرة حب </p>
-                                                <p> حلوة 350غ</p>
-                                            </div>
-                                            <div class="media-links">
-                                                <div class="links-wrap">
-                                                    <a class="p-view prettyPhoto" title=""
-                                                        data-gal="prettyPhoto[gal]"
-                                                        href="front-assets/images/gallery/01.jpg"></a>
-                                                </div>
-                                                <a class="abs-link"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="vertical-item">
-                                        <div class="item-media gray-background">
-                                            <img class="center-block img-responsive" src="front-assets/images/homasd.png"
-                                                alt="" style="width: 92px; height: auto;">
-                                            <div class="item-description">
-                                                <p> حمص </p>
-                                                <p> بالطحينة 350غ</p>
-                                            </div>
-                                            <div class="media-links">
-                                                <div class="links-wrap">
-                                                    <a class="p-view prettyPhoto" title=""
-                                                        data-gal="prettyPhoto[gal]"
-                                                        href="front-assets/images/gallery/01.jpg"></a>
-                                                </div>
-                                                <a class="abs-link"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- تكرار الهيكل للصور الأخرى -->
-                                </div><!-- .owl-carousel -->
+                                        <!-- تكرار الهيكل للصور الأخرى -->
+                                    </div><!-- .owl-carousel -->
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                @endif
             </div>
         </div>
     </body>

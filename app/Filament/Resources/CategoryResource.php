@@ -36,6 +36,7 @@ class CategoryResource extends Resource
                     Forms\Components\toggle::make('status')
                         ->label("حالة الفئة")
                         ->required()
+                        ->default(true)
                 ]),
             ]);
     }

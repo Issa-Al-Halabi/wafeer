@@ -1,5 +1,5 @@
 <head>
-    <title> وفير | @yield('title')</title>
+    <title> وفير | Wafeer @yield('title')</title>
     <meta charset="utf-8">
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="icon" type="" href=" {{ asset('front-assets/images/logo.png') }}">
+    <link rel="shortcut icon" type="" href="{{ asset('front-assets/images/logo.png') }}">
 
     <link rel="stylesheet" href="{{ asset('front-assets/css/bootstrap.min.css') }}">
 
