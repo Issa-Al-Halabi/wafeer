@@ -96,17 +96,29 @@
 
             </a>
             <h1 style="font-size: 10px; color:green;"> دمشق-عربين</h1>
-            <a href="+963954554442">
-                <i class="fas fa-phone"></i>
 
+            <a href="tel:+963954554442">
+                <i class="fas fa-phone"></i>
             </a>
             <h1 style="font-size: 10px; color:green;">+963954554442</h1>
-            <a href="Saeedalmodaskhen@gmail.com">
+
+            <a href="mailto:Info@Wafeer.sy">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <h1 style="font-size: 10px; color:green;">Info@Wafeer.sy</h1>
+
+
+            <a href="mailto:Saeedalmodaskhen@gmail.com">
                 <i class="fas fa-envelope"></i>
 
             </a>
-            <h1 style="font-size:10px; color:green;">Info@Wafeer.sy </h1>
-            <h1 style="font-size:10px; color:green;"> Saeedalmodaskhen@gmail.com </h1>
+            <h1 style="font-size: 10px; color:green;">Saeedalmodaskhen@gmail.com</h1>
+
+            {{-- <a href="Saeedalmodaskhen@gmail.com">
+                <i class="fas fa-envelope"></i>
+                <h1 style="font-size:10px; color:green;"><a href="mailto:Info@Wafeer.sy">Info@Wafeer.sy </a></h1>
+                <h1 style="font-size:10px; color:green;"><a
+                        href="mailto:Saeedalmodaskhen@gmail.com">Saeedalmodaskhen@gmail.com</a> </h1> --}}
 
         </div>
     </div>

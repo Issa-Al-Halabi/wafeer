@@ -25,9 +25,9 @@
         <li>
             <a style="font-size: 18px;font-weight: 700;" href="{{ route('recipes') }}">وصفاتنا </a>
         </li>
-        <li>
+        {{-- <li>
             <a style="font-size: 18px;font-weight: 700;" href="{{ route('index') }}"> التصدير</a>
-        </li>
+        </li> --}}
         <li>
             <a style="font-size: 18px;font-weight: 700;" href="{{ route('exhibitions') }}"> المعارض</a>
         </li>
