@@ -25,6 +25,7 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            ->databaseNotifications(true)
             ->id('admin')
             ->path('admin')
             ->login()
@@ -83,6 +84,7 @@ class AdminPanelProvider extends PanelProvider
                     'المنتجات',
                     'الوصفات',
                     'المعارض',
+                    "تواصل معنا",
                     'إدارة الوصول',
                 ]
             );

@@ -43,7 +43,12 @@
         <div class="row justify-content-center" style="padding-top: 47px;">
             @foreach ($recipes as $recipe)
                 <div class="col-md-5 mb-2" style="padding-bottom: 75px;">
-                    <a href="{{ route('recipeInfo', $recipe->id) }}">
+                    <a href="{{ route('recipeInfo', $recipe->id) }}" class="recipeInfo">
+                        <style>
+                            .recipeInfo:hover {
+                                text-decoration: none;
+                            }
+                        </style>
                         <div class="card card-custom">
                             <img src="{{ asset('storage/' . $recipe->image) }}" class="card-img-top" alt="Image Right">
                             <div class="card-body" style="background-color: #F2F2F2;">
@@ -51,8 +56,9 @@
                                 <p class="card-tex" style="text-align: right;">
                                     {{ $recipe->description }}
                                 </p>
-                                <a href="{{ route('recipeInfo', $recipe->id) }}" class="btn btn-danger btn-lg"
-                                    style="height: 101%; width: 64px; border: none; font-size: 9px;">عرض المزيد</a>
+                                <button onclick="window.location.href'{{ route('recipeInfo', $recipe->id) }}'"
+                                    class="btn btn-danger btn-lg"
+                                    style="height: 101%; width: 64px; border: none; font-size: 9px;">عرض المزيد</button>
                             </div>
                         </div>
                     </a>
