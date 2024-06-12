@@ -7,8 +7,8 @@
             <div class="position-absolute" style="top: 50%; transform: translateY(-50%); left: -14px;"></div>
             <div class="carousel-caption"
                 style="max-width: 80%; position: absolute; bottom: 37rem; width: 100%; text-align: end;">
-                <h5 style="max-width: 60%;">لمحة عن وفير</h5>
-                <h5 style="max-width: 57%; color: #007329;">من نحن</h5>
+                <h5 style="max-width: 60%;"> وصفات وفير الشهية </h5>
+                <h5 style="max-width: 57%; color: #007329;"></h5>
             </div>
         </div>
     </section>
