@@ -15,41 +15,43 @@
             </div>
         </div>
     </section>
-    <section class="" style="background-color: #e4f0e8; ">
-        <div class="container">
-            <div class="row align-items-center" style="    padding-top: 31px;">
-                <!-- عمود الصورة -->
-                <div class="col-md-2">
-                    <img src="{{ asset('front-assets/images/logo.png') }}" class="img-fluid" alt="صورة">
-                </div>
-                <!-- عمود النص -->
-                <div class="col-md-8 text-center"
-                    style="    font-size: 50px;font-weight: 700;color: red; font-family: cairo;">
-                    <p>
-                        {{ $activeCategory->name }}
-                    </p>
-                </div>
-                <!-- عمود الزر -->
-                <div class="col-md-2 text-right">
-                    <div class="dropdown">
-                        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                            style="    direction: rtl; width: 113px;height: 35px;font-size: 16px;">
-                            فرز حسب
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            @foreach ($categories as $category)
-                                @if ($activeCategory != $category)
-                                    <a class="dropdown-item"
-                                        href="{{ route('products', $category->id) }}">{{ $category->name }}</a>
-                                @endif
-                            @endforeach
+    @if ($activeCategory)
+        <section class="" style="background-color: #e4f0e8; ">
+            <div class="container">
+                <div class="row align-items-center" style="    padding-top: 31px;">
+                    <!-- عمود الصورة -->
+                    <div class="col-md-2">
+                        <img src="{{ asset('front-assets/images/logo.png') }}" class="img-fluid" alt="صورة">
+                    </div>
+                    <!-- عمود النص -->
+                    <div class="col-md-8 text-center"
+                        style="    font-size: 50px;font-weight: 700;color: red; font-family: cairo;">
+                        <p>
+                            {{ $activeCategory->name }}
+                        </p>
+                    </div>
+                    <!-- عمود الزر -->
+                    <div class="col-md-2 text-right">
+                        <div class="dropdown">
+                            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style="    direction: rtl; width: 113px;height: 35px;font-size: 16px;">
+                                فرز حسب
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @foreach ($categories as $category)
+                                    @if ($activeCategory != $category)
+                                        <a class="dropdown-item"
+                                            href="{{ route('products', $category->id) }}">{{ $category->name }}</a>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     @foreach ($products as $productsGroup)
         <section class="ls gallery-section" style="background-color: #e4f0e8; ">
