@@ -28,4 +28,3 @@ Route::get('/exhibitions/{id}', [FrontController::class, 'exhibitionInfo'])->nam
 
 // contactUs
 Route::get('/contactUs', [FrontController::class, 'contactUs'])->name("contactUs");
-Route::post('/contactUs', [FrontController::class, 'saveContactUs'])->name("saveContactUs");
