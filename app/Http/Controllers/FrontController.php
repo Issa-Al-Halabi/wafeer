@@ -19,7 +19,7 @@ class FrontController extends Controller
 {
     public function index()
     {
-        $products = Product::where("status",1)->latest()->limit(10)->get();
+        $products = Product::where("status", 1)->latest()->limit(10)->get();
         return view("front.index", compact("products"));
     }
 
@@ -46,10 +46,15 @@ class FrontController extends Controller
             $activeCategory = null;
         }
 
-        $products = Product::where("status", "1")->where("category_id", $activeCategory != null ? $activeCategory->id : 0)->get();
-        $products = $products->chunk(6);
+        $products = Product::where("status", "1")->where("category_id", $activeCategory != null ? $activeCategory->id : 0)
+            ->orderBy("created_at", "desc")
+            ->get();
 
-        return view("front.products", compact("categories", "products", "activeCategory"));
+        $latestProducts = $products->take(6);
+
+        $products = $products->skip(6);
+
+        return view("front.products", compact("categories", "products", "latestProducts", "activeCategory"));
     }
 
     public function recipes(Request $request)
@@ -125,11 +130,12 @@ class FrontController extends Controller
                 Action::make('view')
                     ->label("عرض")
                     ->button()
-                    ->color("success")
+                    ->color("praimary")
                     ->url(fn (ContactUsResource $record): string => $record::getUrl('index')),
 
                 Action::make('markAsRead')
                     ->label("تعليم كمقروء")
+                    ->color("info")
                     ->button()
                     ->markAsRead(),
             ])

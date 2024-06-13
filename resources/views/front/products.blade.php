@@ -46,6 +46,11 @@
                                     @endif
                                 @endforeach
                             </div>
+                            <script>
+                                $(document).ready(function() {
+                                    $('.dropdown-toggle').dropdown()
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -53,38 +58,65 @@
         </section>
     @endif
 
-    @foreach ($products as $productsGroup)
-        <section class="ls gallery-section" style="background-color: #e4f0e8; ">
-            <div class="container-fluid">
-                <div class="row columns_padding_0" style="    padding-bottom: 26px;">
-                    <div class="col-sm-12" style="    padding-top: 29px;">
-                        <div class="owl-carousel" data-margin="15" data-nav="true" data-items="3" data-responsive-xlg="4"
-                            data-responsive-lg="4" data-responsive-md="4" data-responsive-sm="2" data-responsive-xs="1">
-                            @foreach ($productsGroup as $product)
-                                <div class="vertical-item">
-                                    <div class="item-media gray-background">
-                                        <img class="center-block img-responsive"
-                                            src="{{ asset('storage/' . $product->image) }}" alt=""
-                                            style="width: 92px; height: auto;">
-                                        <div class="item-description">
-                                            <p> {{ $product->name }} </p>
-                                            <p> {{ $product->description }} </p>
+    <section class="ls gallery-section" style="background-color: #e4f0e8; ">
+        <div class="container-fluid">
+            <div class="row columns_padding_0" style="    padding-bottom: 26px;">
+                <div class="col-sm-12" style="    padding-top: 29px;">
+                    <div class="owl-carousel" data-margin="15" data-nav="true" data-items="3" data-responsive-xlg="4"
+                        data-responsive-lg="4" data-responsive-md="4" data-responsive-sm="2" data-responsive-xs="1">
+                        @foreach ($latestProducts as $product)
+                            <div class="vertical-item">
+                                <div class="item-media gray-background">
+                                    {{-- @if ($product->created_at > now()->subdays(10)) --}}
+                                    <div class="new">
+                                        <span>جديد</span>
+                                    </div>
+                                    {{-- @endif --}}
+                                    <img class="center-block img-responsive" src="{{ asset('storage/' . $product->image) }}"
+                                        alt="" style="width: 92px; height: auto;">
+                                    <div class="item-description">
+                                        <p> {{ $product->name }} </p>
+                                        <p> {{ $product->description }} </p>
+                                    </div>
+                                    <div class="media-links">
+                                        <div class="links-wrap">
+                                            <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
+                                                href="{{ asset('front-assets/images/gallery/01.jpg') }} "></a>
                                         </div>
-                                        <div class="media-links">
-                                            <div class="links-wrap">
-                                                <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
-                                                    href="{{ asset('front-assets/images/gallery/01.jpg') }} "></a>
-                                            </div>
-                                            <a class="abs-link"></a>
-                                        </div>
+                                        <a class="abs-link"></a>
                                     </div>
                                 </div>
-                            @endforeach
-                            <!-- تكرار الهيكل للصور الأخرى -->
-                        </div><!-- .owl-carousel -->
-                    </div>
+                            </div>
+                        @endforeach
+                        <!-- تكرار الهيكل للصور الأخرى -->
+                    </div><!-- .owl-carousel -->
                 </div>
             </div>
-        </section>
-    @endforeach
+
+            <div class="row columns_padding_0" style="padding-bottom: 26px;">
+                @foreach ($products as $product)
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="    padding-top: 29px;">
+                        <div class="vertical-item">
+                            <div class="item-media gray-background">
+
+                                <img class="center-block img-responsive" src="{{ asset('storage/' . $product->image) }}"
+                                    alt="" style="width: 92px; height: auto;">
+                                <div class="item-description">
+                                    <p> {{ $product->name }} </p>
+                                    <p> {{ $product->description }} </p>
+                                </div>
+                                <div class="media-links">
+                                    <div class="links-wrap">
+                                        <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]"
+                                            href="{{ asset('front-assets/images/gallery/01.jpg') }} "></a>
+                                    </div>
+                                    <a class="abs-link"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 @endsection
