@@ -6540,7 +6540,7 @@ aside .widget_tag_cloud a:hover {
 
 [class*=item]:hover .media-links:before {
     filter: alpha(opacity=100);
-    opacity: 0.5
+    opacity: 0
 }
 
 .media-links a.abs-link {
@@ -6555,7 +6555,19 @@ aside .widget_tag_cloud a:hover {
 [class*=item]:hover .media-links a.abs-link {
     opacity: 1
 }
+[class*=item]:hover img.img-responsive {
+    
+    animation: imgscale 0.3s ease 0s 1 forwards ;
+}
 
+@keyframes imgscale {
+    0%{
+        scale: 1;
+    }
+    100%{
+        scale: 1.1;
+    }
+}
 
 
 
