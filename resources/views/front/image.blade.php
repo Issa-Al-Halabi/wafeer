@@ -41,7 +41,7 @@
     <section class="datee" style="background-color: #e4f0e8; padding-top: 31px; ">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-12 datee">
+                <div class="col-md-12 datee" style="color:#007329;">
                     <p style="    ">-------------------------{{ $exhibition->year }}-------------------------</p>
                 </div>
             </div>

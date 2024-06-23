@@ -60,14 +60,14 @@
 
     </section>
     <h5 class="card-title"
-        style="font-size: 50px; color: #75C425; display: flex; justify-content: center;    padding-top: 23px;">طريقة التحضير
+        style="font-size: 50px; color: #007329; display: flex; justify-content: center;    padding-top: 23px;">طريقة التحضير
     </h5>
     <div class="container " style=" ">
         <div class="row justify-content-center" style="padding-bottom: 67px; padding-top: 47px;">
-            <div class="col-md-8 order-md-1" style="background-color: #75C425;     height: 327px;">
+            <div class="col-md-8 order-md-1" style="background-color: #007329;     height: 327px;">
 
                 <div class="card bg-white">
-                    <div class="card-body" style="background-color: #75C425;">
+                    <div class="card-body" style="background-color: #007329;">
 
                         <div class="border-green p-2" style="font-size: 25px;">
                             <p style="color: white;direction: ltr;text-align: right;">{{ $recipe->preparation }}</p>

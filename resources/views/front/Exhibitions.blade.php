@@ -19,7 +19,7 @@
         <form method="GET">
 
             <select name="year" class="custom-select"
-                style="background-color: #74C329; color: white; border-radius: 23px;    height: 44px;
+                style="background-color: #007329; color: white; border-radius: 23px;    height: 44px;
     font-size: 14px;">
                 @foreach ($years as $year)
                     <option value="{{ $year }}" @if ($activeYear == $year) selected @endif>اذهب الى
@@ -35,7 +35,7 @@
     <section class="datee" style="background-color: #e4f0e8; padding-top: 31px; ">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-12 datee">
+                <div class="col-md-12 datee" style="color:#007329;">
                     <p>-------------------------{{ $activeYear }}-------------------------</p>
                 </div>
             </div>

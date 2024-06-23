@@ -14,26 +14,24 @@
     </section>
 
     <section style="background-color: #e4f0e8;">
-        <div class="container">
-            <div class="row align-items-center" style="background-color: #74C329; padding-top: 31px;">
-                <!-- Image Column -->
-                <div class="col-md-2">
-                    <img src="{{ asset('front-assets/images/logo.png') }}" class="img-fluid" alt="صورة">
-                </div>
-                <!-- Text Column -->
-                <div class="col-md-7 text-center" style="font-size: 50px; font-weight: 700; font-family: cairo;">
-                    <p style="color: green;">وصفات شهية</p>
-                    <p style="color: red;">مع وفير</p>
-                </div>
-                <!-- Button Column -->
-                <div class="col-md-3 text-right">
-                    <div class="container">
-                        <form method="GET">
-                            <input type="search" name="search" value="{{ $search }}" id="searchQuery"
-                                placeholder="🔍 بحث"
-                                style="direction: rtl; border-collapse: separate; border-radius: 5px; border: 4px solid #fff; width: 100%; box-sizing: border-box; font-size: 16px;">
-                        </form>
-                    </div>
+        <div class="row align-items-center" style="background-color: #007329; padding-top: 31px;">
+            <!-- Image Column -->
+            <div class="col-md-2">
+                <img src="{{ asset('front-assets/images/logo.png') }}" class="img-fluid" alt="صورة">
+            </div>
+            <!-- Text Column -->
+            <div class="col-md-7 text-center" style="font-size: 50px; font-weight: 700; font-family: cairo;">
+                <p style="color: white;">وصفات شهية</p>
+                <p style="color: red;"> <span style="color: white;">مع</span> وفير</p>
+            </div>
+            <!-- Button Column -->
+            <div class="col-md-3 text-right">
+                <div class="container">
+                    <form method="GET">
+                        <input type="search" name="search" value="{{ $search }}" id="searchQuery"
+                            placeholder="🔍 بحث"
+                            style="direction: rtl; border-collapse: separate; border-radius: 5px; border: 4px solid #fff; width: 100%; box-sizing: border-box; font-size: 16px;">
+                    </form>
                 </div>
             </div>
         </div>

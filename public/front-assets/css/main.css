@@ -3648,7 +3648,7 @@ section .intro_section .slide_description_wrapper {
     }
 
     .mainmenu.nav.sf-menu li a {
-        color: #74C329;
+        color: #007329;
     }
 
 
@@ -6674,7 +6674,7 @@ aside .widget_tag_cloud a:hover {
     width: 43px;
     height: 38px;
     border-radius: 50%;
-    background-color: #74C329
+    background-color: #007329
 }
 
 
@@ -8177,7 +8177,7 @@ a[class*=soc-].soc-stumbleupon:hover {
         position: relative;
         top: 0px;
         font-size: 36px;
-        color: #74C329;
+        color: #007329;
     }
 
     .btn {
@@ -8202,7 +8202,7 @@ a[class*=soc-].soc-stumbleupon:hover {
 }
 
 .datee {
-    color: #74C329;
+    color: #007329;
     display: flex;
     justify-content: center;
     font-size: 40px;
@@ -8210,7 +8210,7 @@ a[class*=soc-].soc-stumbleupon:hover {
 
 @media screen and (max-width: 767px) {
     .datee {
-        color: #74C329;
+        color: #007329;
         display: flex;
         justify-content: center;
         font-size: 14px;

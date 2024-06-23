@@ -97,10 +97,12 @@
                 <section class="">
                     <div class="row justify-content-center">
                         <div class="col-md-12 text-center">
-                            <div class="text-centerr">منتجاتنا</div>
-                            <img src="front-assets/images/wafeerinedx.jpg" alt="Right Image" class="img-fluid">
-                            <a type="button" href="{{ route('products') }}" class="btn btn-danger mt-2 yazan ">استعراض
-                                المزيد</a>
+                            {{-- <div class="text-centerr">منتجاتنا</div> --}}
+                            <img src="front-assets/images/wafeerinedx.png" alt="Right Image" class="img-fluid"
+                                onclick="window.location.href='{{ route('products') }}'" style="cursor: pointer">
+                            {{-- <a type="button" href="{{ route('products') }}" class="btn btn-danger mt-2 yazan ">
+                                استعراض
+                                المزيد</a> --}}
                         </div>
                     </div>
                 </section>
