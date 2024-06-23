@@ -57,7 +57,7 @@
                         <div class="card"
                             style="background-color: #FFFFFF; text-align: center; height: 292px; width: 90%; margin: auto;">
                             <div class="card-body" style="background-color: #FFFFFF;">
-                                <img src="front-assets/images/اكسبو.png" class="card-img-top" alt="Image"
+                                <img src="{{ asset('storage/' . $exhibition->image) }}" class="card-img-top" alt="Image"
                                     style="max-width: 100%; height: auto; max-height: 200px;">
                                 <h5 class="card-title" style="font-size: 25px; margin-top: 35px;">
                                     --------{{ $exhibition->year }}--------</h5>
