@@ -43,7 +43,7 @@ class RecipeResource extends Resource
                         ->columnSpanFull(),
 
 
-                    Forms\Components\toggle::make('status')
+                    Forms\Components\Toggle::make('status')
                         ->label("حالة الوصفة")
                         ->default(true)
                         ->required(),

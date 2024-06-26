@@ -44,7 +44,7 @@ class ExhibitionResource extends Resource
                                 ->default(now()->year)
                                 ->minValue(0),
 
-                            Forms\Components\toggle::make('status')
+                            Forms\Components\Toggle::make('status')
                                 ->label("حالة المعرض")
                                 ->default(true)
                                 ->required(),

@@ -33,7 +33,7 @@ class CategoryResource extends Resource
                         ->required()
                         ->maxLength(255),
 
-                    Forms\Components\toggle::make('status')
+                    Forms\Components\Toggle::make('status')
                         ->label("حالة الفئة")
                         ->required()
                         ->default(true)

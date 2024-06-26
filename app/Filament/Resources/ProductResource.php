@@ -59,7 +59,7 @@ class ProductResource extends Resource
                         ->columnSpanFull(),
 
 
-                    Forms\Components\toggle::make('status')
+                    Forms\Components\Toggle::make('status')
                         ->label("حالة المنتج")
                         ->required()
                         ->default(true)
