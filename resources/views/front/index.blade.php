@@ -127,7 +127,7 @@
 
                                                     <img class="center-block img-responsive"
                                                         src="{{ asset('storage/' . $product->image) }}" alt=""
-                                                        style="width: 92px; height: auto;">
+                                                        style=" height: auto;">
                                                     <div class="item-description">
                                                         <p>{{ $product->name }}</p>
                                                         <p> {{ $product->description }}</p>

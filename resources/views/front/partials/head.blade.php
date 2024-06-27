@@ -23,6 +23,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Cairo' rel='stylesheet'>
 
     <script src="{{ asset('front-assets/js/vendor/modernizr-2.6.2.min.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -130,7 +130,7 @@ class FrontController extends Controller
                 Action::make('view')
                     ->label("عرض")
                     ->button()
-                    ->color("praimary")
+                    ->color("info")
                     ->url(fn (ContactUsResource $record): string => $record::getUrl('index')),
 
                 Action::make('markAsRead')

@@ -21,7 +21,8 @@
                 <div class="row align-items-center" style="    padding-top: 31px;">
                     <!-- عمود الصورة -->
                     <div class="col-md-2">
-                        <img src="{{ asset('front-assets/images/logo.png') }}" class="img-fluid" alt="صورة">
+                        <img src="{{ asset('front-assets/images/logo.png') }}" class="img-fluid" alt="صورة"
+                            style="width: 100%">
                     </div>
                     <!-- عمود النص -->
                     <div class="col-md-8 text-center"
@@ -73,7 +74,7 @@
                                     </div>
                                     {{-- @endif --}}
                                     <img class="center-block img-responsive" src="{{ asset('storage/' . $product->image) }}"
-                                        alt="" style="width: 92px; height: auto;">
+                                        alt="" style=" height: auto;">
                                     <div class="item-description">
                                         <p> {{ $product->name }} </p>
                                         <p> {{ $product->description }} </p>
@@ -100,7 +101,7 @@
                             <div class="item-media gray-background">
 
                                 <img class="center-block img-responsive" src="{{ asset('storage/' . $product->image) }}"
-                                    alt="" style="width: 92px; height: auto;">
+                                    alt="" style=" height: auto;">
                                 <div class="item-description">
                                     <p> {{ $product->name }} </p>
                                     <p> {{ $product->description }} </p>

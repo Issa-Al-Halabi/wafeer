@@ -55,6 +55,8 @@
 }
 
 .new {
+    position: absolute;
+    z-index: 1;
     background: red;
     border: 2px solid red;
     padding: 3px;
