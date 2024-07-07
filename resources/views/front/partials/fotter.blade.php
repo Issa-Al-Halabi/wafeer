@@ -15,11 +15,11 @@
         <footer class="footer">
             <!-- أيقونات وسائل التواصل الاجتماعي -->
             <div class="social-icons" style="position: absolute; left: 27px; top: -54px;">
-                <a href="رابط فيسبوك" target="_blank"
+                <a href="https://www.facebook.com/wafeer.com.sy" target="_blank"
                     style="display: inline-block; background-color: #007329; border-radius: 50%; padding: 14px;">
                     <i class="fab fa-facebook-f" style="font-size: 24px; color: white;"></i>
                 </a>
-                <a href="رابط إنستغرام" target="_blank"
+                <a href=" https://www.instagram.com/wafeerforfood?igsh=bGphamE5bW5nbXph" target="_blank"
                     style="display: inline-block; background-color: #007329; border-radius: 50%; padding: 14px;">
                     <i class="fab fa-instagram" style="font-size: 24px; color: white;"></i>
                 </a>
@@ -27,9 +27,9 @@
 
             <!-- الصورة في المنتصف -->
             <div class="centered-logo" id="centered-logo"
-                style="z-index: 1; padding-bottom: 19px; padding-left: 135px;">
+                style="z-index: 1;     padding-top: 22px;     padding-left: 47px;">
                 <img id="logo" src="{{ asset('front-assets/images/logo.png') }}" alt="Centered Image"
-                    class="img-fluid mx-auto">
+                    class="img-fluid mx-auto" style="    ">
                 <div class="overlay">
                     <div>
                         <h2 class="textfooter">شركة وفير للصناعات الغذائية</h2>

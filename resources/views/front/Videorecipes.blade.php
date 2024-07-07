@@ -22,7 +22,7 @@
             <div class="row align-items-center">
                 <!-- عمود الصورة -->
                 <div class="col-md-2">
-                    <img src="{{ asset('front-assets/images/logo.png') }}" class="img-fluid" alt="صورة">
+                    <img src="{{ asset('front-assets/images/logo.png') }}" class="img-fluid" alt="صورة" style="    width: 100%;">
                 </div>
                 <!-- عمود النص -->
                 <div class="col-md-7 text-center"
@@ -49,7 +49,7 @@
 
             </video>
             <div class="card-body" style="background: #F2F2F2;">
-                <h5 class="card-title" style="text-align: right;font-size: 50px; color:red;">{{ $recipe->name }}</h5>
+                <h5 class="card-title" style="text-align: right;font-size: 50px; color:red;font-family: cairo light;    font-family: system-ui;">{{ $recipe->name }}</h5>
                 <p class="card-tex" style="text-align: right;font-size: 30px; color:#007329">{{ $recipe->description }}</p>
 
             </div>
@@ -64,7 +64,7 @@
     </h5>
     <div class="container " style=" ">
         <div class="row justify-content-center" style="padding-bottom: 67px; padding-top: 47px;">
-            <div class="col-md-8 order-md-1" style="background-color: #007329;     height: 327px;">
+            <div class="col-md-8 order-md-1" style="    height: 327px;">
 
                 <div class="card bg-white">
                     <div class="card-body" style="background-color: #007329;">

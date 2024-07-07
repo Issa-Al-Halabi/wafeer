@@ -21,7 +21,7 @@
             <div class="row align-items-center">
                 <!-- عمود الصورة -->
                 <div class="col-md-2">
-                    <img src="{{ asset('front-assets/images/logo.png') }}" class="img-fluid" alt="صورة">
+                    <img src="{{ asset('front-assets/images/logo.png') }}" class="img-fluid" alt="صورة" style="width: 100%;">
                 </div>
                 <!-- عمود النص -->
                 <div class="col-md-7 text-center"

@@ -34,7 +34,7 @@
                             @enderror
                         </div>
                         <button type="submit" class="btn btn-success float-right"
-                            style="width: 90px;background-color: #007329;border-color: #007329;">إرسال</button>
+                            style="width: 90px ;    height: 38px;background-color: #007329;border-color: #007329;">إرسال</button>
                     </div>
                     <div class="col-md-3 order-md-1">
                         <div class="form-group">

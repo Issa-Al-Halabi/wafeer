@@ -14,10 +14,11 @@
     </section>
 
     <section style="background-color: #e4f0e8;">
-        <div class="row align-items-center" style="background-color: #007329; padding-top: 31px;">
+        <div class="row align-items-center" style="background-color: #007329; padding-top: 31px;     margin-right: 5px;
+    margin-left: 5px;">
             <!-- Image Column -->
-            <div class="col-md-2">
-                <img src="{{ asset('front-assets/images/logo.png') }}" class="img-fluid" alt="صورة">
+            <div class="col-md-2 logo1">
+                <img src="{{ asset('front-assets/images/logo.png') }}" class="img-fluid" alt="صورة" style="width: 100%;">
             </div>
             <!-- Text Column -->
             <div class="col-md-7 text-center" style="font-size: 50px; font-weight: 700; font-family: cairo;">

@@ -14,7 +14,7 @@
                             <img src="front-assets/images/Group 11.png" alt="Left Image" class="left-image" style="">
                         </div>
                         <div class="carousel-caption"
-                            style="     max-width: 91%;position: absolute; bottom:37rem;  width: 100%; text-align: end;">
+                            style="position: absolute; bottom:37rem;  width: 100%; text-align: end;">
                             <h5 style="max-width: 73%;   ">مجموعة متنوعة من المنتجات</h5>
                             <h5 style="max-width: 73%;   ">...التي تلبي الاحتياجات الغذائية</h5>
                         </div>
@@ -65,7 +65,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-5">
-                                            <img src="front-assets/images/wafeer.png" class="card-img"
+                                            <img src="front-assets/images/moksarat.svg" class="card-img"
                                                 style=" padding-top: 100px;background-color: #F2F2F2;" alt="...">
                                         </div>
                                     </div>
@@ -80,7 +80,7 @@
                                         </div>
                                         <div class="col-md-7" style="background-color: #F2F2F2;">
                                             <div class="card-body" style="text-align: right;">
-                                                <h1 style="color:red;"><strong>الكونسروا</strong> </h1>
+                                                <h1 style="color:red;"><strong>الكونسروة</strong> </h1>
                                                 <p class="card-text" style=" ">منتجات متنوعة تلبي جميع احتياجاتك
                                                     الغذائية</p>
                                                 <a type="button" class="btn btn-danger btn-lg"
@@ -94,18 +94,20 @@
                         </div>
                     </div>
                 </section>
-                <section class="">
-                    <div class="row justify-content-center">
-                        <div class="col-md-12 text-center">
-                            {{-- <div class="text-centerr">منتجاتنا</div> --}}
-                            <img src="front-assets/images/wafeerinedx.png" alt="Right Image" class="img-fluid"
-                                onclick="window.location.href='{{ route('products') }}'" style="cursor: pointer">
-                            {{-- <a type="button" href="{{ route('products') }}" class="btn btn-danger mt-2 yazan ">
-                                استعراض
-                                المزيد</a> --}}
-                        </div>
-                    </div>
-                </section>
+     <section class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+            <div class="text-centerr">منتجاتنا</div>
+            
+                <img src="front-assets/images/wafeerinedx.jpg" alt="Right Image" class="img-fluid">
+           <a href="/products">
+            <button type="button" class="btn btn-danger mt-2 yazan">استعراض المزيد</button>
+             </a>
+        </div>
+    </div>
+</section>
+
+
 
                 @if (count($products) > 0)
                     <section class="ls gallery-section" style="background-color: #e4f0e8;">
@@ -127,7 +129,7 @@
 
                                                     <img class="center-block img-responsive"
                                                         src="{{ asset('storage/' . $product->image) }}" alt=""
-                                                        style=" height: auto;">
+                                                        style="height: auto;">
                                                     <div class="item-description">
                                                         <p>{{ $product->name }}</p>
                                                         <p> {{ $product->description }}</p>
